@@ -7,14 +7,14 @@ const CalendarHeader = ({ dates }) => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "200px repeat(32, minmax(120px, 1fr))", // Using CSS grid directly
+        gridTemplateColumns: "200px repeat(32, minmax(120px, 1fr))",
         bgcolor: "grey.200",
       }}
     >
       {/* "Resource" Header */}
       <Box
         sx={{
-          bgcolor: "grey.100",
+          bgcolor: "grey.50",
           p: 2,
           position: "sticky",
           left: 0,
@@ -22,7 +22,10 @@ const CalendarHeader = ({ dates }) => {
           boxShadow: 3,
         }}
       >
-        <Typography variant="body1" fontWeight="bold" color="#f03030">
+        <Typography
+          variant="body2"
+          sx={{ fontWeight: "medium", color: "text.primary" }}
+        >
           Resource
         </Typography>
       </Box>
@@ -34,16 +37,19 @@ const CalendarHeader = ({ dates }) => {
           sx={{
             bgcolor:
               date.getDay() === 0 || date.getDay() === 6
-                ? "#ffe5c5"
-                : "#F5F5F5",
+                ? "orange.100"
+                : "grey.50",
             p: 2,
             textAlign: "center",
           }}
         >
-          <Typography variant="body2" fontWeight="medium" color="textPrimary">
+          <Typography
+            variant="body2"
+            sx={{ fontWeight: "medium", color: "text.primary" }}
+          >
             {date.toLocaleDateString("en-US", { weekday: "short" })}
           </Typography>
-          <Typography variant="caption" color="textSecondary">
+          <Typography variant="caption" sx={{ color: "text.secondary" }}>
             {formatDate(date)}
           </Typography>
         </Box>

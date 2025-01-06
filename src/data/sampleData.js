@@ -2,24 +2,18 @@ export const employees = [
   {
     id: "1",
     name: "Ruturaj",
-    role: "Frontend Developer",
+    role: "Full-Stack Developer",
     tasks: [
       { id: "1", title: "JMF Audit", status: "completed", date: "2025-01-03" },
-      {
-        id: "2",
-        title: "FrontEnd Word",
-        status: "pending",
-        date: "2025-01-05",
-      },
-      { id: "3", title: "JMF Audit", status: "pending", date: "2025-01-06" },
-      { id: "4", title: "JMF Audit", status: "completed", date: "2025-01-07" },
-      { id: "5", title: "JMF Audit", status: "pending", date: "2025-01-10" },
+      { id: "2", title: "JMF Audit", status: "pending", date: "2025-01-05" },
+      { id: "3", title: "JMF Audit", status: "completed", date: "2025-01-07" },
+      { id: "4", title: "JMF Audit", status: "pending", date: "2025-01-10" },
     ],
   },
   {
     id: "2",
     name: "Pratik",
-    role: "Frontend Developer",
+    role: "Full-Stack Developer",
     tasks: [
       {
         id: "1",
@@ -81,14 +75,14 @@ export const employees = [
   },
   {
     id: "5",
-    name: "Testing",
-    role: "Frontend Developer",
+    name: "Harshal Aute",
+    role: "VAPT",
     tasks: [
       {
         id: "1",
         title: "FrontEnd work",
         status: "completed",
-        date: "2025-01-02",
+        date: "2025-01-05",
       },
       { id: "2", title: "JMF Audit", status: "pending", date: "2025-01-11" },
       {
@@ -97,12 +91,49 @@ export const employees = [
         status: "completed",
         date: "2025-01-12",
       },
+      { id: "4", title: "JMF Audit", status: "pending", date: "2025-01-15" },
+    ],
+  },
+  {
+    id: "6",
+    name: "Testing",
+    role: "Testing",
+    tasks: [
       {
-        id: "4",
-        title: "JMF Audit ",
-        status: "pending",
-        date: "2025-01-15",
+        id: "1",
+        title: "FrontEnd work",
+        status: "completed",
+        date: "2025-01-05",
       },
+      { id: "2", title: "JMF Audit", status: "pending", date: "2025-01-11" },
+      {
+        id: "3",
+        title: "FrontEnd work",
+        status: "completed",
+        date: "2025-01-12",
+      },
+      { id: "4", title: "JMF Audit", status: "pending", date: "2025-01-15" },
+    ],
+  },
+  {
+    id: "7",
+    name: "Shruti ",
+    role: "VAPT",
+    tasks: [
+      {
+        id: "1",
+        title: "FrontEnd work",
+        status: "completed",
+        date: "2025-01-05",
+      },
+      { id: "2", title: "JMF Audit", status: "pending", date: "2025-01-11" },
+      {
+        id: "3",
+        title: "FrontEnd work",
+        status: "completed",
+        date: "2025-01-12",
+      },
+      { id: "4", title: "JMF Audit", status: "pending", date: "2025-01-15" },
     ],
   },
 ];

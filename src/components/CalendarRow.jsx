@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Chip } from "@mui/material";
 import { isWeekend } from "../utils/dateUtils";
 
 const CalendarRow = ({ employee, dates }) => {
@@ -7,36 +7,30 @@ const CalendarRow = ({ employee, dates }) => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "200px repeat(auto-fit, minmax(60px, 1fr))",
-        gap: "1px",
-        backgroundColor: "grey.200",
+        gridTemplateColumns: "200px repeat(32, minmax(120px, 1fr))",
+        bgcolor: "grey.200",
       }}
     >
-      {/* Employee Details (Sticky Column) */}
+      {/* Employee Information */}
       <Box
         sx={{
           bgcolor: "white",
           p: 2,
           position: "sticky",
           left: 0,
-          zIndex: 2,
+          zIndex: 10,
           boxShadow: 3,
         }}
       >
-        <Typography
-          variant="body1"
-          align="left"
-          fontWeight="bold"
-          color="textPrimary"
-        >
+        <Typography variant="body2" fontWeight="medium" color="text.primary">
           {employee.name}
         </Typography>
-        <Typography variant="subtitle2" align="left" color="textSecondary">
+        <Typography variant="caption" color="text.secondary">
           {employee.role}
         </Typography>
       </Box>
 
-      {/* Date Cells */}
+      {/* Dates and Tasks */}
       {dates.map((date) => {
         const task = employee.tasks.find(
           (t) => new Date(t.date).toDateString() === date.toDateString()
@@ -48,34 +42,27 @@ const CalendarRow = ({ employee, dates }) => {
           <Box
             key={date.toISOString()}
             sx={{
-              bgcolor: isWeekendDay ? "#f5f2ee" : "white",
+              bgcolor: isWeekendDay ? "orange.100" : "white",
               p: 2,
-              minHeight: "auto",
+              minHeight: 60,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
             {task && (
-              <Box
+              <Chip
+                label={task.title}
+                size="small"
                 sx={{
-                  bgcolor: task.status === "completed" ? "#a5d6a7" : "#e6ee9c",
-                  color: task.status === "completed" ? "#2e7531" : "#878a25",
-                  p: 0.5,
-                  marginInline: 1,
-                  borderRadius: 0.75,
-                  textAlign: "center",
+                  backgroundColor:
+                    task.status === "completed" ? "green.100" : "yellow.100",
+                  color:
+                    task.status === "completed" ? "green.800" : "yellow.800",
+                  fontSize: "0.75rem",
+                  borderRadius: 1,
                 }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  align="center"
-                  fontSize="0.6rem"
-                  fontWeight="700"
-                  sx={{
-                    padding: "2px 4px",
-                  }}
-                >
-                  {task.title}
-                </Typography>
-              </Box>
+              />
             )}
           </Box>
         );
