@@ -57,7 +57,7 @@ const CalendarRow = ({ employee, dates }) => {
                 sx={{
                   bgcolor: task.status === "completed" ? "#a5d6a7" : "#e6ee9c",
                   color: task.status === "completed" ? "#388e3c" : "#afb42b",
-                  fontSize: "0.75rem",
+                  fontSize: "0.5rem",
                   p: 0.5,
                   marginInline: 1,
                   borderRadius: 0.75,
@@ -65,11 +65,15 @@ const CalendarRow = ({ employee, dates }) => {
                 }}
               >
                 <Typography
-                  variant="caption2"
-                  align="left"
-                  color="textSecondary"
-                  fontSize="0.9rem"
-                  
+                  variant="caption"
+                  align="center"
+                  color="textPrimary"
+                  fontSize="0.6rem"
+                  fontWeight="500"
+                  sx={{
+                    padding: "4px 8px",
+                    marginBottom: "8px",
+                  }}
                 >
                   {task.title}
                 </Typography>
