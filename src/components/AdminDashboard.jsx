@@ -12,7 +12,14 @@ const AdminDashboard = () => {
   const dates = getCalendarDays("2025-01-02", "2025-02-02");
 
   return (
-    <Box sx={{ minHeight: "100vh", backgroundColor: "grey.50", p: 6 }}>
+    <Box
+      sx={{
+        minHeight: "10000vh",
+        backgroundColor: "grey.50",
+        p: 3,
+        marginX: "auto",
+      }}
+    >
       <Box maxWidth="lg" mx="auto">
         <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
           {/* Header */}
@@ -23,7 +30,7 @@ const AdminDashboard = () => {
             mb={3}
           >
             <Box display="flex" alignItems="center" gap={1}>
-              <PersonIcon sx={{ fontSize: 28, color: "primary.main" }} />
+              <PersonIcon sx={{ fontSize: 30, color: "primary.main" }} />
               <Typography variant="h5" fontWeight="bold" color="textPrimary">
                 Resource Calendar
               </Typography>
@@ -35,7 +42,7 @@ const AdminDashboard = () => {
               color="text.secondary"
             >
               <CalendarMonthIcon fontSize="small" />
-              <Typography variant="body2">Dec 2024 - Jan 2025</Typography>
+              <Typography variant="caption">Jan 2025 - Feb 2025</Typography>
             </Box>
           </Box>
 
@@ -57,7 +64,7 @@ const AdminDashboard = () => {
                     employee={employee}
                     dates={dates}
                   />
-                ))} 
+                ))}
               </Box>
             </Box>
           </Paper>

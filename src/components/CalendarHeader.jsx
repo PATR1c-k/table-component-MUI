@@ -14,7 +14,7 @@ const CalendarHeader = ({ dates }) => {
       {/* "Resource" Header */}
       <Box
         sx={{
-          bgcolor: "grey.50",
+          bgcolor: "grey.100",
           p: 2,
           position: "sticky",
           left: 0,
@@ -22,7 +22,7 @@ const CalendarHeader = ({ dates }) => {
           boxShadow: 3,
         }}
       >
-        <Typography variant="body2" fontWeight="medium" color="textPrimary">
+        <Typography variant="body1" fontWeight="bold" color="#f03030">
           Resource
         </Typography>
       </Box>
@@ -33,7 +33,9 @@ const CalendarHeader = ({ dates }) => {
           key={date.toISOString()}
           sx={{
             bgcolor:
-              date.getDay() === 0 || date.getDay() === 6 ? "#fff7ed" : "#F5F5F5",
+              date.getDay() === 0 || date.getDay() === 6
+                ? "#ffe5c5"
+                : "#F5F5F5",
             p: 2,
             textAlign: "center",
           }}
