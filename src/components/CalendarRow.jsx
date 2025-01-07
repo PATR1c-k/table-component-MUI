@@ -20,9 +20,10 @@ const CalendarRow = ({ employee, dates }) => {
           left: 0,
           zIndex: 10,
           boxShadow: 3,
+          justifyItems: "left",
         }}
       >
-        <Typography variant="body2" fontWeight="medium" color="text.primary">
+        <Typography variant="body1" fontWeight="bold" color="text.primary">
           {employee.name}
         </Typography>
         <Typography variant="caption" color="text.secondary">
@@ -42,7 +43,7 @@ const CalendarRow = ({ employee, dates }) => {
           <Box
             key={date.toISOString()}
             sx={{
-              bgcolor: isWeekendDay ? "orange.100" : "white",
+              bgcolor: isWeekendDay ? "#f5f2ee" : "white",
               p: 2,
               minHeight: 60,
               display: "flex",
@@ -56,9 +57,8 @@ const CalendarRow = ({ employee, dates }) => {
                 size="small"
                 sx={{
                   backgroundColor:
-                    task.status === "completed" ? "green.100" : "yellow.100",
-                  color:
-                    task.status === "completed" ? "green.800" : "yellow.800",
+                    task.status === "completed" ? "#aef071" : "#e6ee9c",
+                  color: task.status === "completed" ? "#3d603f" : "#a08a25",
                   fontSize: "0.75rem",
                   borderRadius: 1,
                 }}

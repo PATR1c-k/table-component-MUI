@@ -103,7 +103,7 @@ export const employees = [
         id: "1",
         title: "FrontEnd work",
         status: "completed",
-        date: "2025-01-05",
+        date: "2025-01-08",
       },
       { id: "2", title: "JMF Audit", status: "pending", date: "2025-01-11" },
       {
@@ -124,7 +124,28 @@ export const employees = [
         id: "1",
         title: "FrontEnd work",
         status: "completed",
-        date: "2025-01-05",
+        date: "2025-01-08",
+      },
+      { id: "2", title: "JMF Audit", status: "pending", date: "2025-01-11" },
+      {
+        id: "3",
+        title: "FrontEnd work",
+        status: "completed",
+        date: "2025-01-12",
+      },
+      { id: "4", title: "JMF Audit", status: "pending", date: "2025-01-15" },
+    ],
+  },
+  {
+    id: "8",
+    name: "Saumitra Kulkarni",
+    role: "VAPT",
+    tasks: [
+      {
+        id: "1",
+        title: "Pen Testing",
+        status: "completed",
+        date: "2025-01-08",
       },
       { id: "2", title: "JMF Audit", status: "pending", date: "2025-01-11" },
       {

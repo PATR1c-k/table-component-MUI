@@ -24,7 +24,11 @@ const CalendarHeader = ({ dates }) => {
       >
         <Typography
           variant="body2"
-          sx={{ fontWeight: "medium", color: "text.primary" }}
+          sx={{
+            fontWeight: "bold",
+            color: "text.primary",
+            fontSize: "1.25rem",
+          }}
         >
           Resource
         </Typography>
@@ -37,7 +41,7 @@ const CalendarHeader = ({ dates }) => {
           sx={{
             bgcolor:
               date.getDay() === 0 || date.getDay() === 6
-                ? "orange.100"
+                ? "#ffe5c5"
                 : "grey.50",
             p: 2,
             textAlign: "center",
@@ -45,11 +49,11 @@ const CalendarHeader = ({ dates }) => {
         >
           <Typography
             variant="body2"
-            sx={{ fontWeight: "medium", color: "text.primary" }}
+            sx={{ fontWeight: "bold", color: "text.primary" }}
           >
             {date.toLocaleDateString("en-US", { weekday: "short" })}
           </Typography>
-          <Typography variant="caption" sx={{ color: "text.secondary" }}>
+          <Typography variant="caption-1" sx={{ color: "text.secondary" }}>
             {formatDate(date)}
           </Typography>
         </Box>
