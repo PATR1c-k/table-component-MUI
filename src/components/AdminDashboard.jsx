@@ -10,16 +10,15 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
-  Input,
 } from "@mui/material";
 import DatePicker from "react-datepicker";
 import { getCalendarDays } from "../utils/dateUtils";
 import { employees } from "../data/sampleData";
 
 const AdminDashboard = () => {
-  // Calendar functionality
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Default to current date
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [selectedRoles, setSelectedRoles] = useState("All");
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -28,15 +27,10 @@ const AdminDashboard = () => {
 
   const startDate = selectedDate;
   const endDate = new Date(startDate);
-  endDate.setMonth(startDate.getMonth() + 1); // Set to next month
-
+  endDate.setMonth(startDate.getMonth() + 1);
   const dates = getCalendarDays(startDate.toISOString(), endDate.toISOString());
 
-  // Filtering based on roles
-  const [selectedRoles, setSelectedRoles] = useState("All");
-
   const roles = ["All", ...new Set(employees.map((e) => e.role))];
-
   const filteredEmployees =
     selectedRoles === "All"
       ? employees
@@ -46,52 +40,65 @@ const AdminDashboard = () => {
         );
 
   return (
-    <Box sx={{ minHeight: "100vh", backgroundColor: "gray.50", p: 4 }}>
+    <Box sx={{ minHeight: "100vh", backgroundColor: "grey.100", p: 4 }}>
       <Box sx={{ maxWidth: "100%", margin: "0 auto" }}>
         <Box
-          sx={{
-            backgroundColor: "white",
-            borderRadius: "lg",
-            boxShadow: 3,
-            p: 4,
-          }}
+          sx={{ backgroundColor: "white", borderRadius: 2, boxShadow: 3, p: 4 }}
         >
           {/* Header */}
-          <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              mb: 3,
+            }}
+          >
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <PersonIcon sx={{ fontSize: 24, color: "blue" }} />
+              <PersonIcon sx={{ fontSize: 30, color: "primary.main" }} />
               <Typography
-                variant="h6"
-                sx={{ fontWeight: "bold", color: "gray.900" }}
+                variant="h5"
+                sx={{ fontWeight: "bold", ml: 1, color: "#1c637b" }}
               >
                 Resource Calendar
               </Typography>
             </Box>
             <Box
-              sx={{ display: "flex", alignItems: "center", color: "gray.600" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                position: "relative",
+              }}
             >
               <CalendarMonthIcon
-                sx={{ fontSize: 20, cursor: "pointer" }}
-                onClick={() => setShowDatePicker(!showDatePicker)} // Toggle calendar
+                sx={{ fontSize: 24, cursor: "pointer", color: "primary.main" }}
+                onClick={() => setShowDatePicker(!showDatePicker)}
               />
               {showDatePicker && (
-                <DatePicker
-                  selected={selectedDate}
-                  onChange={handleDateChange}
-                  dateFormat="MMMM yyyy"
-                  showMonthYearPicker
-                  inline
-                  className="relative border-2 border-gray-300 rounded-xl shadow-lg bg-white p-4 mt-4 w-96 transform transition-all hover:scale-105 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  popperClassName="custom-datepicker-popper"
-                  calendarClassName="custom-datepicker-calendar"
-                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "100%",
+                    right: 0,
+                    zIndex: 10,
+                    boxShadow: 3,
+                    borderRadius: 2,
+                    backgroundColor: "white",
+                  }}
+                >
+                  <DatePicker
+                    selected={selectedDate}
+                    onChange={handleDateChange}
+                    dateFormat="MMMM yyyy"
+                    showMonthYearPicker
+                    inline
+                    label={'"month" and "year"'}
+                    views={["month", "year"]}
+                  />
+                </Box>
               )}
               <Typography
-                sx={{
-                  fontSize: "1.125rem",
-                  fontWeight: "medium",
-                  color: "gray.900",
-                }}
+                sx={{ ml: 1, fontWeight: "bold", color: "text.primary" }}
               >
                 {selectedDate.toLocaleDateString("en-US", {
                   month: "short",
@@ -101,22 +108,22 @@ const AdminDashboard = () => {
             </Box>
           </Box>
 
-          {/* Role-based filter functionality */}
+          {/* Role-based filter */}
           <Box
             sx={{
-              padding: 2,
-              borderBottom: 1,
-              backgroundColor: "gray.100",
-              borderRadius: "lg",
+              p: 2,
+              borderBottom: "1px solid",
+              borderColor: "grey.300",
               mb: 3,
             }}
           >
             <Typography
               variant="body2"
-              sx={{ fontWeight: "medium", marginBottom: 1 }}
+              sx={{ fontWeight: "bold", mb: 1, color: "#5499ed" }}
             >
               Filter by Role
             </Typography>
+            <br />
             <FormControl fullWidth>
               <InputLabel id="role-select-label">Role</InputLabel>
               <Select
@@ -124,7 +131,7 @@ const AdminDashboard = () => {
                 value={selectedRoles}
                 onChange={(e) => setSelectedRoles(e.target.value)}
                 label="Role"
-                sx={{ backgroundColor: "white", padding: 1, borderRadius: 1 }}
+                sx={{ backgroundColor: "white", borderRadius: 1 }}
               >
                 {roles.map((role) => (
                   <MenuItem key={role} value={role}>
@@ -135,15 +142,8 @@ const AdminDashboard = () => {
             </FormControl>
           </Box>
 
-          {/* Calendar View with enhanced scroll */}
-          <Box
-            sx={{
-              position: "relative",
-              overflowX: "auto",
-              boxShadow: 1,
-              borderRadius: 2,
-            }}
-          >
+          {/* Calendar */}
+          <Box sx={{ overflowX: "auto", boxShadow: 1, borderRadius: 2 }}>
             <Box
               sx={{
                 display: "inline-block",
